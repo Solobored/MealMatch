@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise Me - MealMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/surprise.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">
+        <h1>🍽️ MealMatch</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/favorites.html">Favorites</a></li>
+        <li><a href="/planner.html">Meal Planner</a></li>
+        <li><a href="/nutrition.html">Nutrition</a></li>
+        <li><a href="/surprise.html" class="active">Surprise Me</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>🎲 Surprise Me!</h1>
+        <p>Discover a random delicious recipe</p>
+      </div>
+
+      <section class="surprise-section">
+        <div class="surprise-button-container">
+          <button id="surprise-btn" class="btn-surprise">
+            <span class="surprise-icon">🎲</span>
+            Surprise Me!
+          </button>
+        </div>
+
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Finding a surprise recipe...</p>
+        </div>
+
+        <div id="error-message" class="error-message hidden"></div>
+
+        <div id="surprise-result" class="surprise-result"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 MealMatch - Your Personal Recipe Assistant</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/surprise.js"></script>
+</body>
+</html>

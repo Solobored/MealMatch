@@ -1,0 +1,254 @@
+.page-header {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.nutrition-form-section {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 3rem;
+}
+
+.nutrition-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.nutrition-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nutrition-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  transition: var(--transition);
+}
+
+.nutrition-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.nutrition-form .btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nutrition-form .btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.nutrition-form .btn-primary:disabled {
+  background: var(--text-secondary);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nutrition-results {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.nutrition-summary {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.nutrition-summary h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.calories-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin: 1rem auto;
+  max-width: 200px;
+}
+
+.calories-number {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calories-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.macros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.macro-item {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+
+.macro-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.macro-icon {
+  font-size: 2rem;
+}
+
+.macro-info {
+  flex: 1;
+}
+
+.macro-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.macro-amount {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.detailed-nutrition {
+  margin-bottom: 2rem;
+}
+
+.detailed-nutrition h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.nutrition-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.nutrient-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nutrient-value {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.diet-labels,
+.health-labels {
+  margin-bottom: 1.5rem;
+}
+
+.diet-labels h4,
+.health-labels h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.diet-label,
+.health-label {
+  background: var(--success);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.health-label {
+  background: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .macros-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calories-highlight {
+    max-width: 150px;
+  }
+
+  .calories-number {
+    font-size: 2.5rem;
+  }
+}

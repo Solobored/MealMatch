@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites - MealMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/favorites.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">
+        <h1>🍽️ MealMatch</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/favorites.html" class="active">Favorites</a></li>
+        <li><a href="/planner.html">Meal Planner</a></li>
+        <li><a href="/nutrition.html">Nutrition</a></li>
+        <li><a href="/surprise.html">Surprise Me</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>❤️ Your Favorite Recipes</h1>
+        <p>Keep track of recipes you love</p>
+      </div>
+
+      <div class="favorites-content">
+        <div class="favorites-section">
+          <div class="section-header">
+            <h2>Saved Recipes</h2>
+            <button id="clear-favorites" class="btn-secondary">Clear All</button>
+          </div>
+          <div id="favorites-grid" class="recipe-grid"></div>
+        </div>
+
+        <div class="shopping-list-section">
+          <div class="section-header">
+            <h2>🛒 Shopping List</h2>
+            <button id="clear-shopping-list" class="btn-secondary">Clear List</button>
+          </div>
+          <div id="shopping-list" class="shopping-list"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 MealMatch - Your Personal Recipe Assistant</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/favorites.js"></script>
+</body>
+</html>

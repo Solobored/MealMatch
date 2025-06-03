@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Analyzer - MealMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nutrition.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">
+        <h1>🍽️ MealMatch</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/favorites.html">Favorites</a></li>
+        <li><a href="/planner.html">Meal Planner</a></li>
+        <li><a href="/nutrition.html" class="active">Nutrition</a></li>
+        <li><a href="/surprise.html">Surprise Me</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>📊 Nutrition Analyzer</h1>
+        <p>Analyze the nutritional content of any recipe</p>
+      </div>
+
+      <section class="nutrition-form-section">
+        <form id="nutrition-form" class="nutrition-form">
+          <div class="form-group">
+            <label for="recipe-input">Paste your recipe here:</label>
+            <textarea 
+              id="recipe-input" 
+              rows="10" 
+              placeholder="Example:&#10;2 cups flour&#10;1 cup sugar&#10;3 eggs&#10;1/2 cup butter&#10;1 tsp vanilla extract"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Analyze Recipe</button>
+        </form>
+      </section>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Analyzing nutrition...</p>
+      </div>
+
+      <div id="error-message" class="error-message hidden"></div>
+
+      <div id="nutrition-results" class="nutrition-results"></div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 MealMatch - Your Personal Recipe Assistant</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/nutrition.js"></script>
+</body>
+</html>

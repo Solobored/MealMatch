@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealMatch - Find Your Perfect Recipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">
+        <h1>🍽️ MealMatch</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/favorites.html">Favorites</a></li>
+        <li><a href="/planner.html">Meal Planner</a></li>
+        <li><a href="/nutrition.html">Nutrition</a></li>
+        <li><a href="/surprise.html">Surprise Me</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2>Discover Your Perfect Recipe</h2>
+          <p>Find delicious recipes based on ingredients you have at home</p>
+          <div class="search-container">
+            <form class="search-form" id="search-form">
+              <div class="search-input-group">
+                <input 
+                  type="text" 
+                  id="ingredients" 
+                  placeholder="Enter ingredients (comma-separated, e.g., chicken, tomatoes, garlic)" 
+                  required
+                >
+                <button type="submit" class="search-btn">
+                  <span>🔍</span>
+                  Find Recipes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="container">
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Finding delicious recipes...</p>
+        </div>
+        <div id="error-message" class="error-message hidden"></div>
+        <div class="recipe-grid" id="recipe-results"></div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h3>Why Choose MealMatch?</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🥗</div>
+            <h4>Smart Ingredient Search</h4>
+            <p>Find recipes using ingredients you already have</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h4>Meal Planning</h4>
+            <p>Generate personalized meal plans for any duration</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💚</div>
+            <h4>Nutrition Analysis</h4>
+            <p>Get detailed nutritional information for every recipe</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h4>Save Favorites</h4>
+            <p>Keep track of your favorite recipes and shopping lists</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 MealMatch - Your Personal Recipe Assistant</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

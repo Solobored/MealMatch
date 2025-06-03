@@ -1,0 +1,142 @@
+.page-header {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.favorites-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.favorites-section,
+.shopping-list-section {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-header h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.btn-secondary {
+  background: var(--text-secondary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--text-primary);
+}
+
+.no-favorites {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.no-favorites h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.no-favorites .btn-primary {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+  transition: var(--transition);
+}
+
+.no-favorites .btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.added-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.shopping-list-section {
+  height: fit-content;
+}
+
+.shopping-list-items {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.shopping-item {
+  background: var(--background);
+  padding: 0.8rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  transition: var(--transition);
+}
+
+.shopping-item:hover {
+  background: #f0f0f0;
+}
+
+.empty-shopping-list {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .favorites-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+}

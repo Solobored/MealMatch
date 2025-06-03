@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Details - MealMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/recipe.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">
+        <h1>🍽️ MealMatch</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/favorites.html">Favorites</a></li>
+        <li><a href="/planner.html">Meal Planner</a></li>
+        <li><a href="/nutrition.html">Nutrition</a></li>
+        <li><a href="/surprise.html">Surprise Me</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading recipe details...</p>
+      </div>
+      
+      <div id="error-message" class="error-message hidden"></div>
+      
+      <div id="recipe-container" class="recipe-container hidden">
+        <div class="recipe-header">
+          <div class="recipe-image-container">
+            <img id="recipe-image" src="/placeholder.svg" alt="Recipe Image">
+          </div>
+          <div class="recipe-info">
+            <h1 id="recipe-title"></h1>
+            <div class="recipe-meta">
+              <span id="recipe-time">⏱️ <span class="time-value"></span> mins</span>
+              <span id="recipe-servings">🍽️ <span class="servings-value"></span> servings</span>
+            </div>
+            <div id="recipe-summary" class="recipe-summary"></div>
+            <div class="recipe-actions">
+              <button id="favorite-btn" class="btn-favorite">
+                <span class="heart">🤍</span>
+                <span class="text">Add to Favorites</span>
+              </button>
+              <button id="shopping-list-btn" class="btn-shopping">
+                🛒 Add to Shopping List
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-content">
+          <div class="recipe-section">
+            <h2>🥘 Ingredients</h2>
+            <ul id="ingredients-list" class="ingredients-list"></ul>
+          </div>
+
+          <div class="recipe-section">
+            <h2>👨‍🍳 Instructions</h2>
+            <div id="instructions-container" class="instructions-container"></div>
+          </div>
+
+          <div class="recipe-section">
+            <h2>📊 Nutrition Facts</h2>
+            <div id="nutrition-container" class="nutrition-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 MealMatch - Your Personal Recipe Assistant</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/recipe.js"></script>
+</body>
+</html>

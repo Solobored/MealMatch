@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Planner - MealMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/planner.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">
+        <h1>🍽️ MealMatch</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/favorites.html">Favorites</a></li>
+        <li><a href="/planner.html" class="active">Meal Planner</a></li>
+        <li><a href="/nutrition.html">Nutrition</a></li>
+        <li><a href="/surprise.html">Surprise Me</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>📋 Meal Planner</h1>
+        <p>Generate personalized meal plans</p>
+      </div>
+
+      <section class="planner-form-section">
+        <form id="planner-form" class="planner-form">
+          <div class="form-group">
+            <label for="plan-days">Plan Duration:</label>
+            <select id="plan-days" required>
+              <option value="1">1 Day Plan</option>
+              <option value="3">3 Day Plan</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Generate Meal Plan</button>
+        </form>
+      </section>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Generating your meal plan...</p>
+      </div>
+
+      <div id="error-message" class="error-message hidden"></div>
+
+      <div id="meal-plan" class="meal-plan"></div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 MealMatch - Your Personal Recipe Assistant</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/planner.js"></script>
+</body>
+</html>
