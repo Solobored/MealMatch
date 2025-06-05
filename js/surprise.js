@@ -46,7 +46,7 @@ function setupSurpriseButton() {
               <span>🍽️ Servings: ${recipe.servings || "N/A"}</span>
             </p>
             <div class="recipe-summary">${recipe.summary ? recipe.summary.replace(/<[^>]*>/g, "").substring(0, 200) + "..." : "A delicious surprise recipe for you to try!"}</div>
-            <a href="/recipe.html?id=${recipe.id}" class="btn-primary">View Full Recipe</a>
+            <a href="./recipe.html?id=${recipe.id}" class="btn-primary">View Full Recipe</a>
           </div>
         </div>
       `

@@ -1,6 +1,6 @@
 [build]
-  publish = "."
-  command = "echo 'Static site ready'"
+  publish = "dist"
+  command = "npm run build"
 
 [[redirects]]
   from = "/*"
@@ -8,7 +8,7 @@
   status = 200
   conditions = {Role = ["admin"]}
 
-# Handle SPA routing
+# Handle specific page routes
 [[redirects]]
   from = "/recipe"
   to = "/recipe.html"
@@ -33,3 +33,9 @@
   from = "/surprise"
   to = "/surprise.html"
   status = 200
+
+# Handle 404s
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404

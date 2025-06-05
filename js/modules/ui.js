@@ -20,7 +20,7 @@ export function renderRecipeCards(recipes) {
   resultsContainer.innerHTML = recipes
     .map(
       (recipe) => `
-    <article class="recipe-card" onclick="window.location.href='/recipe.html?id=${recipe.id}'">
+    <article class="recipe-card" onclick="window.location.href='./recipe.html?id=${recipe.id}'">
       <img src="${recipe.image}" alt="${recipe.title}" loading="lazy">
       <div class="recipe-card-content">
         <h3>${recipe.title}</h3>
@@ -29,7 +29,7 @@ export function renderRecipeCards(recipes) {
           <span>🍽️ ${recipe.servings || "N/A"} servings</span>
         </div>
         ${recipe.missedIngredientCount ? `<p class="missing-ingredients">Missing ${recipe.missedIngredientCount} ingredients</p>` : ""}
-        <button class="view-recipe-btn" onclick="event.stopPropagation(); window.location.href='/recipe.html?id=${recipe.id}'">
+        <button class="view-recipe-btn" onclick="event.stopPropagation(); window.location.href='./recipe.html?id=${recipe.id}'">
           View Recipe
         </button>
       </div>
@@ -53,7 +53,7 @@ export function renderMealPlan(mealPlan) {
           <h4>🌅 Breakfast</h4>
           <img src="${day.meals.breakfast.image}" alt="${day.meals.breakfast.title}">
           <p>${day.meals.breakfast.title}</p>
-          <button onclick="window.location.href='/recipe.html?id=${day.meals.breakfast.id}'" class="view-recipe-btn">
+          <button onclick="window.location.href='./recipe.html?id=${day.meals.breakfast.id}'" class="view-recipe-btn">
             View Recipe
           </button>
         </div>
@@ -61,7 +61,7 @@ export function renderMealPlan(mealPlan) {
           <h4>☀️ Lunch</h4>
           <img src="${day.meals.lunch.image}" alt="${day.meals.lunch.title}">
           <p>${day.meals.lunch.title}</p>
-          <button onclick="window.location.href='/recipe.html?id=${day.meals.lunch.id}'" class="view-recipe-btn">
+          <button onclick="window.location.href='./recipe.html?id=${day.meals.lunch.id}'" class="view-recipe-btn">
             View Recipe
           </button>
         </div>
@@ -69,7 +69,7 @@ export function renderMealPlan(mealPlan) {
           <h4>🌙 Dinner</h4>
           <img src="${day.meals.dinner.image}" alt="${day.meals.dinner.title}">
           <p>${day.meals.dinner.title}</p>
-          <button onclick="window.location.href='/recipe.html?id=${day.meals.dinner.id}'" class="view-recipe-btn">
+          <button onclick="window.location.href='./recipe.html?id=${day.meals.dinner.id}'" class="view-recipe-btn">
             View Recipe
           </button>
         </div>
