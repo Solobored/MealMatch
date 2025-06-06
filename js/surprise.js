@@ -36,16 +36,25 @@ function setupSurpriseButton() {
       const recipe = await getRandomRecipe()
       hideLoading()
 
+      // Ensure we have an image URL, use a placeholder if not
+      const imageUrl = recipe.image || "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600"
+
+      // Format the summary text, removing HTML tags and limiting length
+      const summaryText = recipe.summary
+        ? recipe.summary.replace(/<[^>]*>/g, "").substring(0, 250) + "..."
+        : "A delicious surprise recipe for you to try!"
+
       resultContainer.innerHTML = `
         <div class="recipe-detail-card">
-          <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image">
+          <img src="${imageUrl}" alt="${recipe.title}" class="recipe-image">
           <div class="recipe-info">
             <h3>${recipe.title}</h3>
-            <p class="recipe-meta">
+            <div class="recipe-meta">
               <span>⏱️ Ready in ${recipe.readyInMinutes || "N/A"} minutes</span>
               <span>🍽️ Servings: ${recipe.servings || "N/A"}</span>
-            </p>
-            <div class="recipe-summary">${recipe.summary ? recipe.summary.replace(/<[^>]*>/g, "").substring(0, 200) + "..." : "A delicious surprise recipe for you to try!"}</div>
+              <span>🔥 Calories: ${recipe.nutrition?.nutrients?.find((n) => n.name === "Calories")?.amount || "N/A"} kcal</span>
+            </div>
+            <div class="recipe-summary">${summaryText}</div>
             <a href="./recipe.html?id=${recipe.id}" class="btn-primary">View Full Recipe</a>
           </div>
         </div>

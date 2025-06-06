@@ -59,9 +59,9 @@ async function loadRecipeDetails(recipeId) {
 }
 
 function displayRecipeDetails(recipe) {
-  // Set recipe image
+  // Set recipe image - use a placeholder if image is missing
   const recipeImage = document.getElementById("recipe-image")
-  recipeImage.src = recipe.image || "/placeholder.svg?height=400&width=600"
+  recipeImage.src = recipe.image || "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600"
   recipeImage.alt = recipe.title
 
   // Set recipe title

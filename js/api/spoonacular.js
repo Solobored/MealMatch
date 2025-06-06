@@ -6,7 +6,7 @@ const MOCK_RECIPES = [
   {
     id: 1,
     title: "Chicken Parmesan",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400",
+    image: "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=400",
     readyInMinutes: 45,
     servings: 4,
     missedIngredientCount: 2,
@@ -48,13 +48,40 @@ const MOCK_RECIPES = [
     missedIngredientCount: 2,
     usedIngredientCount: 4,
   },
+  {
+    id: 6,
+    title: "Greek Salad",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400",
+    readyInMinutes: 15,
+    servings: 2,
+    missedIngredientCount: 1,
+    usedIngredientCount: 5,
+  },
+  {
+    id: 7,
+    title: "Mushroom Risotto",
+    image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400",
+    readyInMinutes: 35,
+    servings: 4,
+    missedIngredientCount: 2,
+    usedIngredientCount: 3,
+  },
+  {
+    id: 8,
+    title: "BBQ Pulled Pork",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400",
+    readyInMinutes: 240,
+    servings: 8,
+    missedIngredientCount: 3,
+    usedIngredientCount: 2,
+  },
 ]
 
 const MOCK_RECIPE_DETAILS = {
   1: {
     id: 1,
     title: "Chicken Parmesan",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600",
+    image: "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=600",
     readyInMinutes: 45,
     servings: 4,
     summary:
@@ -90,97 +117,226 @@ const MOCK_RECIPE_DETAILS = {
       ],
     },
   },
+  2: {
+    id: 2,
+    title: "Vegetable Stir Fry",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
+    readyInMinutes: 20,
+    servings: 2,
+    summary: "A quick and healthy vegetable stir fry loaded with colorful vegetables and a savory sauce.",
+    extendedIngredients: [
+      { original: "2 cups mixed vegetables (bell peppers, broccoli, carrots)" },
+      { original: "2 tablespoons vegetable oil" },
+      { original: "3 cloves garlic, minced" },
+      { original: "1 tablespoon ginger, grated" },
+      { original: "2 tablespoons soy sauce" },
+      { original: "1 tablespoon sesame oil" },
+    ],
+    analyzedInstructions: [
+      {
+        steps: [
+          { step: "Heat oil in a wok or large skillet over high heat." },
+          { step: "Add garlic and ginger, stir for 30 seconds." },
+          { step: "Add vegetables and stir fry for 5-7 minutes until crisp-tender." },
+          { step: "Add soy sauce and sesame oil, toss to combine." },
+          { step: "Serve immediately over rice or noodles." },
+        ],
+      },
+    ],
+    nutrition: {
+      nutrients: [
+        { name: "Calories", amount: 220, unit: "kcal", percentOfDailyNeeds: 11 },
+        { name: "Fat", amount: 16, unit: "g", percentOfDailyNeeds: 25 },
+        { name: "Carbohydrates", amount: 18, unit: "g", percentOfDailyNeeds: 6 },
+        { name: "Protein", amount: 4, unit: "g", percentOfDailyNeeds: 8 },
+        { name: "Fiber", amount: 5, unit: "g", percentOfDailyNeeds: 20 },
+        { name: "Sugar", amount: 6, unit: "g", percentOfDailyNeeds: 7 },
+        { name: "Sodium", amount: 720, unit: "mg", percentOfDailyNeeds: 31 },
+      ],
+    },
+  },
+  3: {
+    id: 3,
+    title: "Beef Tacos",
+    image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600",
+    readyInMinutes: 30,
+    servings: 6,
+    summary: "Classic beef tacos with seasoned ground beef, fresh toppings, and warm tortillas.",
+    extendedIngredients: [
+      { original: "1 pound ground beef" },
+      { original: "1 packet taco seasoning" },
+      { original: "12 taco shells or small tortillas" },
+      { original: "1 cup shredded lettuce" },
+      { original: "1 cup diced tomatoes" },
+      { original: "1/2 cup shredded cheese" },
+      { original: "1/4 cup sour cream" },
+    ],
+    analyzedInstructions: [
+      {
+        steps: [
+          { step: "Brown ground beef in a skillet over medium heat." },
+          { step: "Drain excess fat and add taco seasoning with water as directed on package." },
+          { step: "Simmer for 5-10 minutes until sauce thickens." },
+          { step: "Warm taco shells or tortillas according to package directions." },
+          { step: "Fill shells with beef and top with lettuce, tomatoes, cheese, and sour cream." },
+        ],
+      },
+    ],
+    nutrition: {
+      nutrients: [
+        { name: "Calories", amount: 320, unit: "kcal", percentOfDailyNeeds: 16 },
+        { name: "Fat", amount: 18, unit: "g", percentOfDailyNeeds: 28 },
+        { name: "Carbohydrates", amount: 20, unit: "g", percentOfDailyNeeds: 7 },
+        { name: "Protein", amount: 22, unit: "g", percentOfDailyNeeds: 44 },
+        { name: "Fiber", amount: 3, unit: "g", percentOfDailyNeeds: 12 },
+        { name: "Sugar", amount: 2, unit: "g", percentOfDailyNeeds: 2 },
+        { name: "Sodium", amount: 580, unit: "mg", percentOfDailyNeeds: 25 },
+      ],
+    },
+  },
 }
 
 export async function searchRecipes(ingredients) {
-  try {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+  // Check if we have a valid API key
+  if (API_KEY && API_KEY !== "demo_key") {
+    try {
+      const params = new URLSearchParams({
+        apiKey: API_KEY,
+        ingredients,
+        number: 12,
+        ranking: 2,
+        ignorePantry: true,
+      })
 
-    // For demo purposes, filter mock data based on ingredients
-    const ingredientList = ingredients
-      .toLowerCase()
-      .split(",")
-      .map((i) => i.trim())
-    const filteredRecipes = MOCK_RECIPES.filter((recipe) => {
-      return ingredientList.some(
-        (ingredient) =>
-          recipe.title.toLowerCase().includes(ingredient) ||
-          (ingredient === "chicken" && recipe.title.toLowerCase().includes("chicken")) ||
-          (ingredient === "vegetable" && recipe.title.toLowerCase().includes("vegetable")) ||
-          (ingredient === "beef" && recipe.title.toLowerCase().includes("beef")) ||
-          (ingredient === "salmon" && recipe.title.toLowerCase().includes("salmon")) ||
-          (ingredient === "pasta" && recipe.title.toLowerCase().includes("pasta")),
-      )
-    })
+      const response = await fetch(`${BASE_URL}/findByIngredients?${params}`)
 
-    return filteredRecipes.length > 0 ? filteredRecipes : MOCK_RECIPES
-
-    const params = new URLSearchParams({
-      apiKey: API_KEY,
-      ingredients,
-      number: 12,
-      ranking: 2,
-      ignorePantry: true
-    });
-
-    const response = await fetch(`${BASE_URL}/findByIngredients?${params}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.ok) {
+        const data = await response.json()
+        return data
+      } else {
+        console.warn("API call failed, using mock data")
+      }
+    } catch (error) {
+      console.error("Error fetching recipes from API:", error)
     }
-    return await response.json();
-
-  } catch (error) {
-    console.error("Error fetching recipes:", error)
-    return MOCK_RECIPES
   }
+
+  // Fallback to mock data
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
+  const ingredientList = ingredients
+    .toLowerCase()
+    .split(",")
+    .map((i) => i.trim())
+
+  const filteredRecipes = MOCK_RECIPES.filter((recipe) => {
+    return ingredientList.some(
+      (ingredient) =>
+        recipe.title.toLowerCase().includes(ingredient) ||
+        (ingredient === "chicken" && recipe.title.toLowerCase().includes("chicken")) ||
+        (ingredient === "vegetable" && recipe.title.toLowerCase().includes("vegetable")) ||
+        (ingredient === "beef" && recipe.title.toLowerCase().includes("beef")) ||
+        (ingredient === "salmon" && recipe.title.toLowerCase().includes("salmon")) ||
+        (ingredient === "pasta" && recipe.title.toLowerCase().includes("pasta")),
+    )
+  })
+
+  return filteredRecipes.length > 0 ? filteredRecipes : MOCK_RECIPES
 }
 
 export async function getRandomRecipe() {
-  try {
-    // Return random mock recipe
-    const randomIndex = Math.floor(Math.random() * MOCK_RECIPES.length)
-    return MOCK_RECIPES[randomIndex]
+  // Check if we have a valid API key
+  if (API_KEY && API_KEY !== "demo_key") {
+    try {
+      const params = new URLSearchParams({
+        apiKey: API_KEY,
+        number: 1,
+        tags: "main course",
+      })
 
+      const response = await fetch(`${BASE_URL}/random?${params}`)
 
-    const params = new URLSearchParams({
-      apiKey: API_KEY,
-      number: 1,
-      tags: 'main course'
-    });
-
-    const response = await fetch(`${BASE_URL}/random?${params}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.ok) {
+        const data = await response.json()
+        return data.recipes[0]
+      } else {
+        console.warn("API call failed, using mock data")
+      }
+    } catch (error) {
+      console.error("Error fetching random recipe from API:", error)
     }
-    const data = await response.json();
-    return data.recipes[0];
-
-  } catch (error) {
-    console.error("Error fetching random recipe:", error)
-    return MOCK_RECIPES[0]
   }
+
+  // Fallback to mock data
+  await new Promise((resolve) => setTimeout(resolve, 500))
+  const randomIndex = Math.floor(Math.random() * MOCK_RECIPES.length)
+  const randomRecipeId = MOCK_RECIPES[randomIndex].id
+
+  // Return the detailed mock recipe if available, otherwise return the basic mock recipe
+  return MOCK_RECIPE_DETAILS[randomRecipeId] || MOCK_RECIPES[randomIndex]
 }
 
 export async function getRecipeById(id) {
-  try {
-    // Return mock recipe details
-    return MOCK_RECIPE_DETAILS[id] || MOCK_RECIPE_DETAILS[1]
+  // Check if we have a valid API key
+  if (API_KEY && API_KEY !== "demo_key") {
+    try {
+      const params = new URLSearchParams({
+        apiKey: API_KEY,
+        includeNutrition: true,
+      })
 
+      const response = await fetch(`${BASE_URL}/${id}/information?${params}`)
 
-    const params = new URLSearchParams({
-      apiKey: API_KEY,
-      includeNutrition: true
-    });
-
-    const response = await fetch(`${BASE_URL}/${id}/information?${params}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.ok) {
+        const data = await response.json()
+        return data
+      } else {
+        console.warn("API call failed, using mock data")
+      }
+    } catch (error) {
+      console.error("Error fetching recipe details from API:", error)
     }
-    return await response.json();
- 
-  } catch (error) {
-    console.error("Error fetching recipe details:", error)
-    return MOCK_RECIPE_DETAILS[1]
   }
+
+  // Fallback to mock data
+  await new Promise((resolve) => setTimeout(resolve, 800))
+
+  // If we have detailed mock data for this ID, return it
+  if (MOCK_RECIPE_DETAILS[id]) {
+    return MOCK_RECIPE_DETAILS[id]
+  }
+
+  // Otherwise, find the recipe in the basic mock data and enhance it
+  const basicRecipe = MOCK_RECIPES.find((recipe) => recipe.id == id)
+  if (basicRecipe) {
+    return {
+      ...basicRecipe,
+      summary: `A delicious ${basicRecipe.title} recipe that's perfect for any occasion.`,
+      extendedIngredients: [
+        { original: "Main ingredients for " + basicRecipe.title },
+        { original: "Additional ingredients based on your preference" },
+        { original: "Salt and pepper to taste" },
+      ],
+      analyzedInstructions: [
+        {
+          steps: [
+            { step: "Prepare all ingredients for " + basicRecipe.title },
+            { step: "Cook according to your preferred method" },
+            { step: "Serve and enjoy!" },
+          ],
+        },
+      ],
+      nutrition: {
+        nutrients: [
+          { name: "Calories", amount: 350, unit: "kcal", percentOfDailyNeeds: 18 },
+          { name: "Fat", amount: 15, unit: "g", percentOfDailyNeeds: 23 },
+          { name: "Carbohydrates", amount: 30, unit: "g", percentOfDailyNeeds: 10 },
+          { name: "Protein", amount: 25, unit: "g", percentOfDailyNeeds: 50 },
+        ],
+      },
+    }
+  }
+
+  // If all else fails, return the first mock recipe detail
+  return MOCK_RECIPE_DETAILS[1]
 }

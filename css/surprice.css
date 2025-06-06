@@ -1,35 +1,95 @@
 .page-header {
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
   margin-bottom: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
 }
 
 .page-header h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .page-header p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   opacity: 0.9;
 }
 
 .surprise-section {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+}
+
+.surprise-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+.surprise-text h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.surprise-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.surprise-benefits {
+  list-style: none;
+  padding: 0;
+}
+
+.surprise-benefits li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.surprise-benefits li span {
+  margin-right: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.surprise-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
 }
 
 .surprise-button-container {
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
 }
 
 .btn-surprise {
   background: linear-gradient(135deg, var(--accent), var(--primary));
-  color: var(--text-primary);
+  color: white;
   border: none;
   padding: 1.5rem 3rem;
   border-radius: 50px;
@@ -103,12 +163,12 @@
 
 .recipe-detail-card .recipe-image {
   width: 100%;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
 }
 
 .recipe-detail-card .recipe-info {
-  padding: 2rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,25 +178,29 @@
   font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .recipe-detail-card .recipe-meta {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
   color: var(--text-secondary);
 }
 
 .recipe-detail-card .recipe-meta span {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .recipe-detail-card .recipe-summary {
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 2rem;
+  font-size: 1.05rem;
 }
 
 .recipe-detail-card .btn-primary {
@@ -149,6 +213,7 @@
   text-align: center;
   transition: var(--transition);
   align-self: flex-start;
+  font-size: 1.1rem;
 }
 
 .recipe-detail-card .btn-primary:hover {
@@ -156,9 +221,63 @@
   transform: translateY(-2px);
 }
 
+/* Footer styling */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
+  }
+
+  .surprise-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .btn-surprise {
@@ -180,5 +299,15 @@
 
   .recipe-detail-card h3 {
     font-size: 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
